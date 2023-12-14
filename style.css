@@ -2,6 +2,7 @@ body {
     background-color: #333;
     color: #fff;
     font-family: Arial, sans-serif;
+    
 }
 
 header {
@@ -13,7 +14,7 @@ header {
 header img {
     max-width: 190px;
 }
-
+/*
 nav ul {
     list-style: none;
     background-color: #555;
@@ -34,9 +35,18 @@ nav a {
 nav a:hover {
     background-color: #777;
 }
+*/
 
 section {
     padding: 20px;
+}
+
+a:link {
+    color: rgb(29, 172, 255);
+}
+
+a:hover {
+    color: rgb(33, 113, 160);
 }
 
 .project {
