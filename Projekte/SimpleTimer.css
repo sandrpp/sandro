@@ -2,5 +2,15 @@ header {
     background-image: url(/Bilder/TimerBanner.png);
     background-repeat: no-repeat;
     background-size: cover;
-    filter: brightness(0.3);
+    position: relative;
+}
+header::after {
+    background-color: rgba(0,0,0,0.3);
+    content: ''; /* Inhalt generieren, um die Pseudo-Element-Schicht zu erstellen */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
 }
