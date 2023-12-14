@@ -1,0 +1,7 @@
+header {
+    background-image: url(/Bilder/TimerBanner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.7);
+    filter: blur(0.5);
+}
