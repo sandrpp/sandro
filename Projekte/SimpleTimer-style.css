@@ -6,7 +6,7 @@ header {
 }
 header::after {
     background-color: rgba(0,0,0,0.3);
-    content: ''; /* Inhalt generieren, um die Pseudo-Element-Schicht zu erstellen */
+    content: '';
     position: absolute;
     top: 0;
     right: 0;
