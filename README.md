@@ -1,2 +1,2 @@
 # Website sandro.bohmer.org
-Webiste von Sandro Bohmer
+Website von Sandro Bohmer
