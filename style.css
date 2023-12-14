@@ -41,11 +41,11 @@ section {
     padding: 20px;
 }
 
-a:link {
+section a:link {
     color: rgb(29, 172, 255);
 }
 
-a:hover {
+section a:hover {
     color: rgb(33, 113, 160);
 }
 
