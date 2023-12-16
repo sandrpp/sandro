@@ -23,6 +23,15 @@ section {
     padding: 20px;
 }
 
+.links {
+    font-weight: bold;
+}
+
+.links img {
+    width: 26px;
+    height: 26px;
+}
+
 a {
     color: rgb(47, 161, 255);
 }
@@ -39,6 +48,7 @@ a:hover {
 }
 
 footer {
+    margin-bottom: 20px;
     text-align: center;
     padding: 10px;
     background-color: #252525;
