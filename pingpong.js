@@ -16,6 +16,10 @@ let ballSpeedX = 5, ballSpeedY = 2;
 let leftPlayerUp = false, leftPlayerDown = false;
 let rightPlayerUp = false, rightPlayerDown = false;
 
+// Punkte
+let leftPlayerScore = 0, rightPlayerScore = 0;
+const winningScore = 5; // Anpassen Sie die Siegpunktzahl nach Bedarf
+
 // Zeichenfunktion
 function draw() {
     // Spielfeld löschen
@@ -33,6 +37,11 @@ function draw() {
 
     // Rechten Schläger zeichnen
     ctx.fillRect(canvas.width - paddleWidth, rightPaddleY, paddleWidth, paddleHeight);
+
+    // Punkte anzeigen
+    ctx.font = "20px Arial";
+    ctx.fillText("Spieler 1: " + leftPlayerScore, 20, 30);
+    ctx.fillText("Spieler 2: " + rightPlayerScore, canvas.width - 150, 30);
 }
 
 // Animationsschleife
@@ -58,6 +67,23 @@ function gameLoop() {
         ballSpeedX = -ballSpeedX;
     }
 
+    // Ball verlässt das Spielfeld auf der linken Seite
+    if (ballX - ballSize < 0) {
+        rightPlayerScore++;
+        resetBall();
+    }
+
+    // Ball verlässt das Spielfeld auf der rechten Seite
+    if (ballX + ballSize > canvas.width) {
+        leftPlayerScore++;
+        resetBall();
+    }
+
+    // Geschwindigkeitszunahme nach einer bestimmten Anzahl von Schlägen
+    if ((leftPlayerScore + rightPlayerScore) % 5 === 0) {
+        increaseBallSpeed();
+    }
+
     // Schlägerbewegung für Spieler 1 (WASD)
     if (leftPlayerUp && leftPaddleY > 0) {
         leftPaddleY -= 5;
@@ -74,7 +100,42 @@ function gameLoop() {
         rightPaddleY += 5;
     }
 
+    // Überprüfen Sie den Sieger
+    if (leftPlayerScore === winningScore || rightPlayerScore === winningScore) {
+        alert("Spiel beendet! Spieler " + (leftPlayerScore === winningScore ? "1" : "2") + " gewinnt!");
+        resetGame();
+    }
+
     requestAnimationFrame(gameLoop);
+}
+
+// Funktion zum Zurücksetzen des Balls
+function resetBall() {
+    ballX = canvas.width / 2;
+    ballY = canvas.height / 2;
+    ballSpeedX = -ballSpeedX; // Ändern Sie die Richtung des Balls nach einem Punkt
+}
+
+// Funktion zur Erhöhung der Ballgeschwindigkeit
+function increaseBallSpeed() {
+    if (ballSpeedX > 0) {
+        ballSpeedX += 1;
+    } else {
+        ballSpeedX -= 1;
+    }
+
+    if (ballSpeedY > 0) {
+        ballSpeedY += 0.5;
+    } else {
+        ballSpeedY -= 0.5;
+    }
+}
+
+// Funktion zum Zurücksetzen des Spiels
+function resetGame() {
+    leftPlayerScore = 0;
+    rightPlayerScore = 0;
+    resetBall();
 }
 
 // Tastenereignisse für Spieler 1 (WASD)
