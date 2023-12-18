@@ -23,6 +23,10 @@
       background-color: #1a1a1a;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
+
+    #gameCanvas {
+      border-radius: 8px;
+    }
   </style>
   <title>Ping Pong Game</title>
 </head>
@@ -73,9 +77,9 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Draw paddles
-      ctx.fillStyle = "#fff";
-      ctx.fillRect(player1.x, player1.y, paddleWidth, paddleHeight);
-      ctx.fillRect(player2.x, player2.y, paddleWidth, paddleHeight);
+      ctx.fillStyle = "#3498db";
+      ctx.roundRect(player1.x, player1.y, paddleWidth, paddleHeight, 8, true, false);
+      ctx.roundRect(player2.x, player2.y, paddleWidth, paddleHeight, 8, false, true);
 
       // Draw ball
       ctx.beginPath();
@@ -92,6 +96,7 @@
 
       // Draw scores
       ctx.font = "20px Arial";
+      ctx.fillStyle = "#fff";
       ctx.fillText("Player 1: " + player1.score, 50, 30);
       ctx.fillText("Player 2: " + player2.score, canvas.width - 150, 30);
     }
@@ -217,6 +222,23 @@
       if (e.key === "ArrowUp" || e.key === "ArrowDown") {
         player2.dy = 0;
       }
+    }
+
+    // Rounded rectangle function
+    CanvasRenderingContext2D.prototype.roundRect = function (x, y, width, height, radiusTopLeft, radiusTopRight, radiusBottomRight, radiusBottomLeft) {
+      this.beginPath();
+      this.moveTo(x + radiusTopLeft, y);
+      this.lineTo(x + width - radiusTopRight, y);
+      this.quadraticCurveTo(x + width, y, x + width, y + radiusTopRight);
+      this.lineTo(x + width, y + height - radiusBottomRight);
+      this.quadraticCurveTo(x + width, y + height, x + width - radiusBottomRight, y + height);
+      this.lineTo(x + radiusBottomLeft, y + height);
+      this.quadraticCurveTo(x, y + height, x, y + height - radiusBottomLeft);
+      this.lineTo(x, y + radiusTopLeft);
+      this.quadraticCurveTo(x, y, x + radiusTopLeft, y);
+      this.closePath();
+      this.fill();
+      this.stroke();
     }
 
     document.addEventListener("keydown", keyDownHandler, false);
