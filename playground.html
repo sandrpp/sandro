@@ -27,14 +27,16 @@
       x: 10,
       y: canvas.height / 2 - paddleHeight / 2,
       dy: 0,
-      score: 0
+      score: 0,
+      powerUpActive: false
     };
 
     let player2 = {
       x: canvas.width - 20,
       y: canvas.height / 2 - paddleHeight / 2,
       dy: 0,
-      score: 0
+      score: 0,
+      powerUpActive: false
     };
 
     let ball = {
@@ -132,15 +134,20 @@
           ball.y - ball.radius < powerUp.y + 10 &&
           ball.y + ball.radius > powerUp.y
         ) {
-          // Apply power-up effect (for example, increase paddle speed)
-          paddleSpeed = 10;
+          // Apply power-up effect to the player with the ball
+          if (ball.dx > 0) {
+            player1.powerUpActive = true;
+          } else {
+            player2.powerUpActive = true;
+          }
 
           // Deactivate power-up
           powerUp.active = false;
 
-          // Reset paddle speed after 5 seconds
+          // Reset power-up after 5 seconds
           setTimeout(() => {
-            paddleSpeed = 5;
+            player1.powerUpActive = false;
+            player2.powerUpActive = false;
           }, 5000);
         }
       } else {
@@ -150,6 +157,13 @@
           powerUp.x = Math.random() * (canvas.width - 10);
           powerUp.y = Math.random() * (canvas.height - 10);
         }
+      }
+
+      // Apply paddle speed changes due to power-up
+      if (player1.powerUpActive) {
+        paddleSpeed = 10;
+      } else {
+        paddleSpeed = 5;
       }
     }
 
