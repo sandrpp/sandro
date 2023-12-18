@@ -170,8 +170,8 @@
     function reset() {
       ball.x = canvas.width / 2;
       ball.y = canvas.height / 2;
-      ball.dx = 5;
-      ball.dy = 5;
+      ball.dx = Math.abs(ball.dx);
+      ball.dy = Math.abs(ball.dy);
     }
 
     function gameLoop() {
