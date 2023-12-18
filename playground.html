@@ -16,16 +16,12 @@
     }
 
     canvas {
-      border: 2px solid #fff;
+      border: none;
       border-radius: 8px;
       display: block;
       margin: 20px auto;
-      background-color: #1a1a1a;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    }
-
-    #gameCanvas {
-      border-radius: 8px;
+      background-color: #fff; /* Weißes Quadrat */
+      box-shadow: 0 0 10px rgba(200, 200, 200, 0.5); /* Hellgraue Ränder */
     }
   </style>
   <title>Ping Pong Game</title>
@@ -237,7 +233,9 @@
       this.lineTo(x, y + radiusTopLeft);
       this.quadraticCurveTo(x, y, x + radiusTopLeft, y);
       this.closePath();
+      this.fillStyle = "#3498db"; // Blaue Füllfarbe für Paddles
       this.fill();
+      this.strokeStyle = "#ccc"; // Hellgraue Randfarbe für Paddles
       this.stroke();
     }
 
