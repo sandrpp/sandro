@@ -20,9 +20,6 @@ let rightPlayerUp = false, rightPlayerDown = false;
 let leftPlayerScore = 0, rightPlayerScore = 0;
 const winningScore = 5; // Anpassen Sie die Siegpunktzahl nach Bedarf
 
-// Zählvariable für Schläge
-let hitCount = 0;
-
 // Zeichenfunktion
 function draw() {
     // Spielfeld löschen
@@ -82,11 +79,6 @@ function gameLoop() {
         resetBall();
     }
 
-    // Geschwindigkeitszunahme nach jeder festgelegten Anzahl von Schlägen
-    if (hitCount % 5 === 0) {
-        increaseBallSpeed();
-    }
-
     // Schlägerbewegung für Spieler 1 (WASD)
     if (leftPlayerUp && leftPaddleY > 0) {
         leftPaddleY -= 5;
@@ -117,29 +109,12 @@ function resetBall() {
     ballX = canvas.width / 2;
     ballY = canvas.height / 2;
     ballSpeedX = -ballSpeedX; // Ändern Sie die Richtung des Balls nach einem Punkt
-    hitCount++;
-}
-
-// Funktion zur Erhöhung der Ballgeschwindigkeit
-function increaseBallSpeed() {
-    if (ballSpeedX > 0) {
-        ballSpeedX += 0.5;
-    } else {
-        ballSpeedX -= 0.5;
-    }
-
-    if (ballSpeedY > 0) {
-        ballSpeedY += 0.2;
-    } else {
-        ballSpeedY -= 0.2;
-    }
 }
 
 // Funktion zum Zurücksetzen des Spiels
 function resetGame() {
     leftPlayerScore = 0;
     rightPlayerScore = 0;
-    hitCount = 0;
     resetBall();
 }
 
@@ -163,3 +138,7 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('keyup', (e) => {
     if (e.key === 'ArrowUp') rightPlayerUp = false;
     if (e.key === 'ArrowDown') rightPlayerDown = false;
+});
+
+// Spiel starten
+gameLoop();
