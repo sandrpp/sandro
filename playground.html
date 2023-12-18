@@ -1,19 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ping Pong Spiel</title>
-    <style>
-        canvas {
-            border: 1px solid #000;
-            display: block;
-            margin: 20px auto;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    canvas {
+      border: 1px solid #000;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+  <title>Ping Pong Game</title>
 </head>
 <body>
-    <canvas id="pingPongCanvas" width="800" height="400"></canvas>
-    <script src="pingpong.js"></script>
+  <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const paddleWidth = 10;
+    const paddleHeight = 60;
+    let paddleSpeed = 5;
+
+    let player1 = {
+      x: 10,
+      y: canvas.height / 2 - paddleHeight / 2,
+      dy: 0,
+      score: 0
+    };
+
+    let player2 = {
+      x: canvas.width - 20,
+      y: canvas.height / 2 - paddleHeight / 2,
+      dy: 0,
+      score: 0
+    };
+
+    let ball = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      dx: 5,
+      dy: 5,
+      radius: 8
+    };
+
+    function draw() {
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw paddles
+      ctx.fillStyle = "#000";
+      ctx.fillRect(player1.x, player1.y, paddleWidth, paddleHeight);
+      ctx.fillRect(player2.x, player2.y, paddleWidth, paddleHeight);
+
+      // Draw ball
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#000";
+      ctx.fill();
+      ctx.closePath();
+
+      // Draw scores
+      ctx.font = "20px Arial";
+      ctx.fillText("Player 1: " + player1.score, 50, 30);
+      ctx.fillText("Player 2: " + player2.score, canvas.width - 150, 30);
+    }
+
+    function update() {
+      // Update paddle positions
+      player1.y += player1.dy;
+      player2.y += player2.dy;
+
+      // Boundary checking for paddles
+      player1.y = Math.max(0, Math.min(canvas.height - paddleHeight, player1.y));
+      player2.y = Math.max(0, Math.min(canvas.height - paddleHeight, player2.y));
+
+      // Update ball position
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      // Ball collision with top and bottom walls
+      if (ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height) {
+        ball.dy *= -1;
+      }
+
+      // Ball collision with paddles
+      if (
+        (ball.x - ball.radius < player1.x + paddleWidth &&
+          ball.y > player1.y &&
+          ball.y < player1.y + paddleHeight) ||
+        (ball.x + ball.radius > player2.x &&
+          ball.y > player2.y &&
+          ball.y < player2.y + paddleHeight)
+      ) {
+        ball.dx *= -1;
+      }
+
+      // Check for scoring
+      if (ball.x - ball.radius < 0) {
+        player2.score++;
+        reset();
+      } else if (ball.x + ball.radius > canvas.width) {
+        player1.score++;
+        reset();
+      }
+
+      // Increase ball speed every 5 hits
+      if ((player1.score + player2.score) % 5 === 0 && (player1.score + player2.score) > 0) {
+        ball.dx = (ball.dx > 0 ? 1 : -1) * Math.abs(ball.dx) * 1.1;
+        ball.dy = (ball.dy > 0 ? 1 : -1) * Math.abs(ball.dy) * 1.1;
+      }
+    }
+
+    function reset() {
+      ball.x = canvas.width / 2;
+      ball.y = canvas.height / 2;
+      ball.dx = 5;
+      ball.dy = 5;
+    }
+
+    function gameLoop() {
+      draw();
+      update();
+      requestAnimationFrame(gameLoop);
+    }
+
+    function keyDownHandler(e) {
+      if (e.key === "W" || e.key === "w") {
+        player1.dy = -paddleSpeed;
+      } else if (e.key === "S" || e.key === "s") {
+        player1.dy = paddleSpeed;
+      }
+
+      if (e.key === "ArrowUp") {
+        player2.dy = -paddleSpeed;
+      } else if (e.key === "ArrowDown") {
+        player2.dy = paddleSpeed;
+      }
+    }
+
+    function keyUpHandler(e) {
+      if (e.key === "W" || e.key === "w" || e.key === "S" || e.key === "s") {
+        player1.dy = 0;
+      }
+
+      if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+        player2.dy = 0;
+      }
+    }
+
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+
+    gameLoop();
+  </script>
 </body>
 </html>
