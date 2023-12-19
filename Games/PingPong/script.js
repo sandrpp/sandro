@@ -50,7 +50,7 @@ function draw() {
     ctx.fillStyle = "#fff";
     ctx.fill();
     ctx.closePath();
-    
+
     // Draw scores
     ctx.font = "20px Arial";
     ctx.fillText("Player 1: " + player1.score, 50, 30);
@@ -95,13 +95,6 @@ function update() {
     player1.score++;
     reset();
     }
-
-    // Increase ball speed every 5 hits
-    if ((player1.score + player2.score) % 5 === 0 && (player1.score + player2.score) > 0) {
-    ball.dx = (ball.dx > 0 ? 1 : -1) * Math.abs(ball.dx) * 1.1;
-    ball.dy = (ball.dy > 0 ? 1 : -1) * Math.abs(ball.dy) * 1.1;
-    }
-
     // Power-up logic
     if (powerUp.active) {
     if (
