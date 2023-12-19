@@ -121,11 +121,13 @@ function update() {
     }
     } else {
     // Activate power-up randomly
-    if (Math.random() < 0.01) {
+    /**
+     if (Math.random() < 0.01) {
         powerUp.active = true;
         powerUp.x = Math.random() * (canvas.width - 10);
         powerUp.y = Math.random() * (canvas.height - 10);
     }
+    */
     }
 
     // Apply paddle speed changes due to power-up
