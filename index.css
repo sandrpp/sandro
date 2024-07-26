@@ -1,20 +1,23 @@
 body {
     background: #f2f4f7;
-    max-width: 1200px; /* Maximale Breite des Containers */
-    margin: 0 auto; /* Zentriert den Container */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-content: center;
 }
 @media (min-width: 768px) {
     body {
-        padding-left: 50px; /* Fügt links 50px Abstand hinzu */
-        padding-right: 50px; /* Fügt rechts 50px Abstand hinzu */
+        padding-left: 50px;
+        padding-right: 50px;
     }
 }
 .upper-area {
     background-image: url("/pictures/hintergrund.png");
     background-repeat: no-repeat;
     background-position: center left;
-    text-align: left;
     float: left;
+
 }
 
 .description{
@@ -23,6 +26,7 @@ body {
     font-size: 20px;
     width: 70%;
     margin-bottom: 30px;
+
 }
 .name {
     font-family: "Merriweather", serif;
@@ -47,6 +51,10 @@ body {
 }
 .orange-button:hover {
     transform: scale(1.04);
+}
+
+.projects {
+    margin-bottom: 100px;
 }
 
 .projects h2{
