@@ -14,6 +14,7 @@
 }
 
 .orange-button {
+    text-decoration: none;
     padding: 10px 22px;
     background: #f44336;
     border-radius: 6px;
