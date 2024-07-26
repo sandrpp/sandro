@@ -61,12 +61,18 @@ nav a{
     top: 12px;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 502px) {
     .menu-button{
-
+        position: absolute;
+        width: 1%;
+        right: 0;
+        top: 23px;
     }
     .top-bar li:first-child{
         display: none;
+    }
+    .top-bar{
+        padding-top: 40px;
     }
 }
 
