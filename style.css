@@ -84,8 +84,10 @@ nav a{
     width: 120px;
     padding: 20px;
     z-index: 999;
-    background-color: rgba(242, 244, 247, 0.32);
-    backdrop-filter: blur(10px);
+    background-color: rgba(242, 244, 247, 0.473);
+    -webkit-backdrop-filter: blur(10px)!important;
+    -moz-filter: blur(200px);
+    backdrop-filter: blur(10px)!important;
     box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
     display: none;
     flex-direction: column;
