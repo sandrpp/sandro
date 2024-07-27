@@ -12,9 +12,6 @@ body {
         padding-right: 50px;
     }
 }
-@media (max-width: 460px) {
-
-}
 .upper-area {
     background-image: url("/pictures/hintergrund.png");
     background-repeat: no-repeat;
