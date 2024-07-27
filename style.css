@@ -1,3 +1,29 @@
+/*
+Überschriften
+*/
+
+h1 {
+    font-family: "Merriweather", serif;
+    font-size: 400%;
+    font-weight: 8000;
+    margin-bottom: 10px;
+}
+h2 {
+    font-family: "Merriweather", serif;
+    font-size: 250%;
+    font-weight: 800;
+
+}
+h3{
+    font-family: "Merriweather", serif;
+    font-size: 300%;
+    font-weight: 800;
+}
+
+/*
+Seitenränder
+*/
+
 body {
     background: #f2f4f7;
     max-width: 1200px;
@@ -12,13 +38,22 @@ body {
         padding-right: 50px;
     }
 }
+
+/*
+Hintergrundbild
+*/
+
 .upper-area {
     background-image: url("/pictures/hintergrund.png");
     background-repeat: no-repeat;
     background-position: center left;
     float: left;
-
 }
+
+/*
+navbar
+*/
+
 nav {
     background: #f2f4f7;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
@@ -52,11 +87,19 @@ nav a{
     scale: 5.5%;
 }
 
+/*
+menu button erstellen
+*/
+
 .menu-button{
     margin-right: 55px;
     position: relative;
     top: 12px;
 }
+
+/*
+fix für kleine bildschirme
+*/
 
 @media (max-width: 502px) {
     .menu-button{
@@ -72,6 +115,30 @@ nav a{
         padding-top: 40px;
     }
 }
+
+/*
+menu button normal nicht anzeigen
+*/
+
+.menu-button{
+    display: none;
+}
+
+/*
+menu button auf handy anzeigen
+*/
+
+@media(max-width: 880px) {
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+}
+/*
+navbar (side-bar)
+*/
 
 .side-bar{
     position: fixed;
@@ -101,16 +168,4 @@ nav a{
 .side-bar li:first-child {
     margin-top: 10px;
     margin-left: 220px;
-}
-.menu-button{
-    display: none;
-}
-
-@media(max-width: 880px) {
-    .hideOnMobile{
-        display: none;
-    }
-    .menu-button{
-        display: block;
-    }
 }

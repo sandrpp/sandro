@@ -1,17 +1,18 @@
+/*
+Personen beschreibung
+*/
+
 .description{
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-size: 20px;
     width: 70%;
     margin-bottom: 30px;
+}
 
-}
-.name {
-    font-family: "Merriweather", serif;
-    font-size: 400%;
-    font-weight: 8000;
-    margin-bottom: 10px;
-}
+/*
+Knopf
+*/
 
 .orange-button {
     text-decoration: none;
@@ -32,17 +33,18 @@
     transform: scale(1.04);
 }
 
+/*
+projekten mehr platz nach unten geben
+*/
 
 .projects {
     margin-bottom: 100px;
 }
 
-.projects h2{
-    font-family: "Merriweather", serif;
-    font-size: 400%;
-    font-weight: 8000;
-    margin-bottom: 30px;
-}
+/*
+einstellungen für Simple timer box
+*/
+
 .simple-timer{
     max-width: 100%;
     min-width: 30%;
@@ -57,12 +59,7 @@
     display: flex;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.21);
 }
-.project-title {
-    font-family: "Merriweather", serif;
-    font-size: 250%;
-    font-weight: 800;
 
-}
 .simple-timer-logo{
     margin-top: 16px;
     height: 120px;
