@@ -17,7 +17,8 @@ function changeLanguage() {
     const navLawTop = document.getElementById("law-t");
     const langGer = document.getElementById("german");
     const langEng = document.getElementById("english");
-    const descr = document.getElementById("description");
+    const descr1 = document.getElementById("description1");
+    const descr2 = document.getElementById("description2");
     const proHeading = document.getElementById("projects-heading");
     const langSelector = document.getElementById("selector");
 
@@ -32,7 +33,8 @@ function changeLanguage() {
         langGer.innerHTML = "German";
         document.getElementById("language").style.width = "193px";
         langEng.innerHTML = "English";
-        descr.innerHTML = "Et enim, magna felis vestibulum, ornare massa elit, in nam dignissim nam morbi odio nullam. Rhoncus vitae ligula, mauris nascetur eleifend nonummy. Mauris mattis suscipit, fermentum sed proin vestibulum in diam interdum.";
+        descr1.innerHTML = "Software developer from Germany/NRW.";
+        descr2.innerHTML = "16 years old."
         proHeading.innerHTML = "Projects";
 
         langSelector.style.marginLeft = "-80px"
@@ -50,7 +52,8 @@ function changeLanguage() {
         langGer.innerHTML = "Deutsch"
         document.getElementById("language").style.width = "205px";
         langEng.innerHTML = "Englisch";
-        descr.innerHTML = "Et enim, magna felis vestibulum, ornare massa elit, in nam dignissim nam morbi odio nullam. Rhoncus vitae ligula, mauris nascetur eleifend nonummy. Mauris mattis suscipit, fermentum sed proin vestibulum in diam interdum.";
+        descr1.innerHTML = "Software Entwickler aus Deutschland/NRW.";
+        descr2.innerHTML = "16 Jahre alt."
         proHeading.innerHTML ="Projekte";
 
         langSelector.style.marginLeft = "-190px"
