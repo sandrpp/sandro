@@ -21,49 +21,62 @@
 </head>
 <body>
 
-    <!--navbar-->
-    <nav class="navbar">
-        <ul class="side-bar" id="sidebar">
-            <li onclick="hideSidebar()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg> </li>
-
-            <li><a href="#">Links/Kontakt</a></li>
-            <li><a href="/pages/Rechtliches/Impressum/impressum.html">Rechtliches</a></li>
-        </ul>
-        <ul class="top-bar">
-            <li> <a href="/index.html"><img src="/pictures/sandrobohmer-transparent.png" alt=""></a> </li>
-            <li class="hideOnMobile"><a href="https://linktr.ee/sandrp">Links/Kontakt</a></li>
-            <li class="hideOnMobile"><a href="/pages/Rechtliches/Impressum/impressum.html">Rechtliches</a></li>
-            <li class="menu-button" onclick="showSidebar()" ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></li>
-        </ul>
-    </nav>
+    <!--navbar und language-->
+    <div class="navlang">
+        <nav class="navbar">
+            <ul class="side-bar" id="sidebar">
+                <li onclick="hideSidebar()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg> </li>
+    
+                <li><a href="#" id="links">Links/Kontakt</a></li>
+                <li><a href="/pages/Rechtliches/Impressum/impressum.html" id="law">Rechtliches</a></li>
+            </ul>
+            <ul class="top-bar">
+                <li> <a href="/index.html"><img src="/pictures/sandrobohmer-transparent.png" alt=""></a> </li>
+                <li class="hideOnMobile" ><a href="https://linktr.ee/sandrp" id="links-t">Links/Kontakt</a></li>
+                <li class="hideOnMobile" ><a href="/pages/Rechtliches/Impressum/impressum.html" id="law-t">Rechtliches</a></li>
+                <li class="menu-button" onclick="showSidebar()" ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></li>
+            </ul>
+        </nav>
+        <!--hier noch einen button draus machen-->
+        <button class="language" id="language" onclick="changeLanguage()">
+            
+            <p id="german">Deutsch</p>
+            <p class="trenner">|</p>
+            <p id="english">Englisch</p>
+            <p class="selector" id="selector">UUUUUII</p>
+        </button>
+    </div>
     <!--upper-area-->
-    <div class="upper-area">
-        <div class="text">
-            <h1>Sandro Bohmer</h1>
-            <p class="description">
-                Et enim, magna felis vestibulum, ornare massa elit, in nam dignissim nam morbi odio nullam.
-                Rhoncus vitae ligula, mauris nascetur eleifend nonummy.
-                Mauris mattis suscipit, fermentum sed proin vestibulum in diam interdum.
-            </p>
-        </div>
-        <a href="mailto:sandro@bohmer.org">
-            <button class="orange-button">Email</button>
-        </a>
-    </div>
-    <!--projects-->
-    <div class="projects">
-        <h2>Projekte</h2>
-        <article class="simple-timer">
-            <div>
-                <h3>Simple Timer</h3>
-                <div class="project-description">
-                    <p>A minecraft plugin to display a timer in the actionbar. see the <a href="https://github.com/Gxmmxr/SimpleTimer/wiki/">wiki</a> for a explanation of all commands.</p>
-                    <p>Download the plugin via <a href="https://modrinth.com/plugin/simpletimer/">Modrinth</a> or the releases tab on <a href="https://github.com/Gxmmxr/SimpleTimer/releases">GitHub</a>.</p>
-                </div>
+    <div class="inhalt">
+        <div class="upper-area">
+            <div class="text">
+                <h1>Sandro Bohmer</h1>
+                <p id="description">
+                    Software Entwickler aus Deutschland/NRW.
+                    16 Jahre Alt.
+                
+                </p>
             </div>
-            <img src="/pictures/SimpleTimer.png" alt="Simple-Timer-Logo" class="simple-timer-logo">
-        </article>
+            <a href="mailto:sandro@bohmer.org">
+                <button class="orange-button">Email</button>
+            </a>
+        </div>
+        <!--projects-->
+        <div id="projects">
+            <h2 id= "projects-heading">Projekte</h2>
+            <article class="simple-timer">
+                <div>
+                    <h3>Simple Timer</h3>
+                    <div class="project-description" id="simple-timer-description">
+                        <p>A minecraft plugin to display a timer in the actionbar. see the <a href="https://github.com/Gxmmxr/SimpleTimer/wiki/">wiki</a> for a explanation of all commands.</p>
+                        <p>Download the plugin via <a href="https://modrinth.com/plugin/simpletimer/">Modrinth</a> or the releases tab on <a href="https://github.com/Gxmmxr/SimpleTimer/releases">GitHub</a>.</p>
+                    </div>
+                </div>
+                <img src="/pictures/SimpleTimer.png" alt="Simple-Timer-Logo" class="simple-timer-logo">
+            </article>
+        </div>
     </div>
+    
     <!--script-->
     <script type="text/javascript" src="scripts.js"></script>
 </body>
