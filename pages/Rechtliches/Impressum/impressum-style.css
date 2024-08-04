@@ -8,7 +8,7 @@ dicker text in Zeilen aufgeteilt und in box
     font-size: 20px;
     width: 70%;
     margin-bottom: 30px;
-    background-color: white;
+    background-color: var(--project-background);
     padding: 1%;
     border-radius: 10px;
     border-style: solid;

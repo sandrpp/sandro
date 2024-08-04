@@ -25,12 +25,13 @@ Seitenränder
 */
 
 body {
-    background: #f2f4f7;
+    background: var(--background-color);
     max-width: 1200px;
     margin: 0 auto;
     padding-left: 10px;
     padding-right: 10px;
     align-content: center;
+    color: var(--text-color);
 }
 @media (min-width: 768px) {
     body {
@@ -49,10 +50,13 @@ Hintergrundbild
 */
 
 .upper-area {
-    background-image: url("/pictures/hintergrund.png");
+    background-image: url("/pictures/background_transparent.png");
     background-repeat: no-repeat;
     background-position: center left;
     float: left;
+    @media (prefers-color-scheme: dark) {
+        background-image: url("/pictures/background_transparent_baclk.png");
+    }
 }
 
 /*
@@ -60,7 +64,7 @@ navbar
 */
 
 nav {
-    background: #f2f4f7;
+    background: var(--nav-background-color);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
 }
@@ -82,15 +86,16 @@ nav a{
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: black;
+    color: var(--text-color);
     font-family: "Merriweather", serif;
     font-weight: 900;
 }
 .top-bar li:first-child{
     margin-right: auto;
-    margin-top: -4px;
-    margin-left: -390px;
+    margin-top: -12px;
+    margin-left: -415px;
     scale: 5.5%;
+
 }
 
 /*
@@ -154,7 +159,7 @@ navbar (side-bar)
     width: 120px;
     padding: 20px;
     z-index: 999;
-    background-color: rgba(242, 244, 247, 0.473);
+    background-color: #f2f4f779;
     -webkit-backdrop-filter: blur(10px)!important;
     -moz-filter: blur(200px);
     backdrop-filter: blur(10px)!important;
