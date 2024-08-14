@@ -15,7 +15,7 @@
     --text-color: #000000;
     --primary-color: #f44336;
     --sidebar-color: #f2f4f779;
-    -project-background: #f6f6f6;
+    --project-background: #f6f6f6;
 
     @media (prefers-color-scheme: dark){
         --nav-background-color: #2e2e2e;

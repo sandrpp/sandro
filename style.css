@@ -159,7 +159,7 @@ navbar (side-bar)
     width: 120px;
     padding: 20px;
     z-index: 999;
-    background-color: #f2f4f779;
+    background-color: var(--sidebarcolor);
     -webkit-backdrop-filter: blur(10px)!important;
     -moz-filter: blur(200px);
     backdrop-filter: blur(10px)!important;
